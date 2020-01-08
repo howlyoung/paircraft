@@ -12,20 +12,21 @@ class Arms(Unit):
         # 武器标识
         self.flag = ''
         # 当前持有武器的对象
-        self.owner = null
+        self.owner = None
 
-    #发射
+    # 发射
     def attack(self):
         if self.surplus_count > 0:
             self.surplus_count = self.surplus_count - 1
-            return Bullet(self.get_config())
-        else
-            return null
+            return [Bullet(self.get_config())]
+        else:
+            return []
 
-    #填充
+    # 填充
     def fill(self):
         pass
 
     # 获取子弹显示配置
     def get_config(self):
-        return {'flag': '', 'speed': self.owner.speed, 'x': self.owner.x, 'y': self.owner.y, 'image': ''}
+        return {'flag': '', 'speed': self.owner.speed,
+                'x': self.owner.x, 'y': self.owner.y, 'image': ''}

@@ -9,7 +9,4 @@ class Bullet(Unit):
         self.speed = config.speed
         self.x = config.x
         self.y = config.y
-
-    def move(self):
-        pass
-
+        self.dir = 0

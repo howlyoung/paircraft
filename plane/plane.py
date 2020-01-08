@@ -11,7 +11,7 @@ class Plane(Unit):
 
     # 使用武器
     def attack(self):
-        pass
+        return self.arm.attack()
 
     # 切换武器
     def switch_arm(self):
