@@ -20,3 +20,11 @@ class Plane(Unit):
     # 装备武器
     def armed(self, arm):
         pass
+
+    # 被击中
+    def be_hit(self, unit):
+        damge = unit.attack - self.defense
+        if damge > 0:
+            self.hp = self.hp - damge
+        if self.hp <= 0:
+            self.life = 0

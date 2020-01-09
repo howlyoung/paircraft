@@ -17,7 +17,10 @@ class Unit(object):
         self.y = 0
         # 图片位置
         self.image = ''
-
+        # 攻击力
+        self.attack = 0
+        # 存活标志
+        self.life = 1
     # 移动
     def move(self, dir):
         # 保存当前位置，方便回退
@@ -43,3 +46,7 @@ class Unit(object):
     # 获取位置
     def get_poisiion(self):
         return [self.x, self.y]
+
+    # 被击中
+    def be_hit(self, unit):
+        pass
