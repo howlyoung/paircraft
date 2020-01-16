@@ -21,6 +21,9 @@ class Unit(object):
         self.attack = 0
         # 存活标志
         self.life = 1
+        # 防御值
+        self.defense = 0
+
     # 移动
     def move(self, dir):
         # 保存当前位置，方便回退
@@ -49,4 +52,22 @@ class Unit(object):
 
     # 被击中
     def be_hit(self, unit):
-        pass
+        hurt = unit.get_attack() - self.get_def()
+        if hurt > 0:
+            if hurt >= self.get_hp():
+                # 被击落
+                self.life = 0
+            else:
+                self.hp = self.hp - hurt
+
+    # 获取攻击力
+    def get_attack(self):
+        return self.attack
+
+    # 获取防御力
+    def get_def(self):
+        return self.defense
+
+    # 获得血量
+    def get_hp(self):
+        return self.hp
