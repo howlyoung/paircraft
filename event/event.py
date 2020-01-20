@@ -10,7 +10,9 @@ class Event():
     def keyboard_event(self):
         for event in pygame.event.get():
             if event.key in self.event_list:
-                self.event_list[event.key].event_handle(event)
+                handle_list = self.event_list[event.key]
+                for handle in handle_list:
+                    handle.event_handle(event)
 
     '''
     注册事件
@@ -20,4 +22,9 @@ class Event():
     '''
 
     def register_event(self, event_key, event_handle):
-        self.event_list[event_key] = event_handle
+        val = self.event_list.get(event_key)
+        if val is None:
+            key_list = [event_handle]
+            self.event_list[event_key] = key_list
+        else:
+            self.event_list[event_key] = event_handle
